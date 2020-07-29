@@ -1,5 +1,10 @@
 import './components/hello.stories';
 import './components/button.stories';
 import './components/input.stories';
+import './components/buttonNavigationBar.stories';
+import './components/question.stories';
 import './views/signUp.Stories';
 import './views/signIn.Stories';
+import './views/categories.Stories';
+import './views/forgotPassword.Storie';
+import './views/home.Stories';

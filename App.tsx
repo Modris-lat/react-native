@@ -1,80 +1,53 @@
-import React from 'react';
-import { StyleSheet,
-  Text,
-  View,
-  Button,
-  TouchableOpacity,
-  ScrollView,
-  FlatList,
-  StatusBar } from 'react-native';
-import { useState } from 'react';
-import storybook from './storybook'
+import * as React from 'react';
+import storybook from './storybook';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import {SignUp, SignIn, HomeScreen, ForgotPassword, ProfileScreen, BagScreen, ShopScreen, FavoritesScreen} from './src/views';
+import { createStackNavigator } from '@react-navigation/stack';
+import {Image, Button} from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const IS_STORYBOOK = true;
+const Tab = createBottomTabNavigator();
 
-const generateRandomSkills = (n: number): SkillProps[] => {
-  return [...new Array(n)].map((it, i) => ({
-    title: 'typscript' + i,
-    logo: '🔍',
-    hours: 500
-  }))
-}
 
-interface SkillProps {
-  title: string;
-  logo: string;
-  hours: number;
-}
+const IS_STORYBOOK = false;
 
-const Skill: React.FC <SkillProps> = ({title, logo, hours}) => {
-  console.log(title);
-  const [totalHoursSpent, setTotalHoursSpent] = useState<number>(hours);
+const Stack = createStackNavigator();
+
+const Drawer = createDrawerNavigator();
+
+const HomeTitle: React.FC = () => {
   return (
-    <View>
-      <Text style={styles.text}>{title}</Text>
-      <Text style={styles.text}>{logo}</Text>
-      <Text style={styles.text}>{totalHoursSpent}</Text>
-      <TouchableOpacity onPress={() => setTotalHoursSpent(totalHoursSpent + 1)}>
-        <Text style={addHour.text}>Add hour</Text>
-      </TouchableOpacity>
-    </View>
-  )
-}
-
-const addHour = StyleSheet.create({
-  text: {
-    fontSize: 42,
-    color: 'red',
-    fontWeight: 'bold'
-  }
-
-})
-
-function App() {
-  
-  const skills = generateRandomSkills(99999);
-
-  return (
-    <FlatList<SkillProps>
-      data={skills}
-      renderItem={({item}) => <Skill title={item.title} logo={item.logo} hours={item.hours} />}
-      ListHeaderComponent={<Text style={[styles.container]}>My skills</Text>}
-      keyExtractor={item => item.title}
+    <Image
+      source={require('./assets/home.png')}
     />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    fontSize: 42
-  },
-  text: {
-    fontSize: 42,
-  },
-  scrollView: {
-    backgroundColor: '#08FFDA',
-    marginHorizontal: 10,
-  }
-});
-export default (IS_STORYBOOK ? storybook : App)
+
+function App() {
+  const isSignedIn = true;
+  return (
+    isSignedIn ? (
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Shop" component={ShopScreen} />
+          <Tab.Screen name="Bag" component={BagScreen} />
+          <Tab.Screen name="Favorites" component={FavoritesScreen} />
+          <Tab.Screen name="Profile" component={ProfileScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    ) : (
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName='SignUp' drawerPosition='right'>
+          <Drawer.Screen name="SignUp" component={SignUp} />
+          <Drawer.Screen name="SignIn" component={SignIn} />
+          <Drawer.Screen name="Remind Password" component={ForgotPassword} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    )
+  );
+}
+export default (IS_STORYBOOK ? storybook : App);

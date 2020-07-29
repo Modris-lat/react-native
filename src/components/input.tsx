@@ -27,11 +27,12 @@ const style = StyleSheet.create({
     container: {
         backgroundColor: '#2A2C36',
         borderRadius: 4,
+        flex: 0.2
     },
     text: {
         color: '#F5F5F5',
         fontSize: 14,
-        lineHeight: 20,
+        lineHeight: 50,
         paddingHorizontal: 20,
         paddingBottom: 8,
         textAlignVertical: 'top',

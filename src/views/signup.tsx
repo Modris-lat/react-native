@@ -1,12 +1,13 @@
 import  { ScrollView, StatusBar, Text, Alert } from 'react-native';
 import {View, TextInput, StyleSheet} from 'react-native';
 import React from 'react';
-import {Input, Button} from '../components'
+import {Input, Button, Question, FooterText, FooterButton} from '../components';
+import {isSignedIn} from './../../App'
 
 const Header: React.FC = () => {
     return (
         <View>
-            <Text style={headerStyle.text}>Sign Up</Text>
+            <Text style={headerStyle.text}>Sign up</Text>
         </View>
     )
 }
@@ -22,7 +23,15 @@ const headerStyle = StyleSheet.create({
 
 const Footer: React.FC = () => {
     return (
-        <View style={{backgroundColor: 'red', height: 50}}/>
+        <View style={{height: 120}}>
+            <View>
+                <FooterText text='Or sign up with social account'/>
+            </View>
+            <View style={{flexDirection: 'row', flex: 0.8, alignSelf: 'center', margin: 10}}>
+                <FooterButton onPress={() => Alert.alert('sign up')} image={require('./../../assets/g.png')}/>
+                <FooterButton onPress={() => Alert.alert('sign up')} image={require('./../../assets/f.png')}/>
+            </View>
+        </View>
     )
 }
 export const SignUp: React.FC = () => {
@@ -34,10 +43,11 @@ export const SignUp: React.FC = () => {
                     <Header />
                 </View>
                 <View style={{flex: 3, justifyContent: 'space-evenly'}}>
-                    <Input label='name' />
-                    <Input label='email' />
-                    <Input label='pasword' />
-                    <Button title='Sign Up' onPress={() => Alert.alert('sign up')}/>
+                    <Input label='Name' />
+                    <Input label='Email' />
+                    <Input label='Password' />
+                    <Question text='Already have an account?   ' />
+                    <Button title='SIGN UP' onPress={() => Alert.alert('sign up')}/>
                 </View>
                 <View style={{flex: 2, justifyContent: 'flex-end'}}>
                     <Footer />
