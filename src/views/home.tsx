@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 export const HomeScreen: React.FC = () => {
   return (
-    <ScrollView style={style.container}>
+    <ScrollView >
       <View>
         <ImageBackground style={{height: 340}} source={require('./../../assets/image3.png')} >
           <View style={{paddingTop: 270}}>
@@ -33,40 +33,17 @@ export const HomeScreen: React.FC = () => {
           <TouchableOpacity onPress={() => Alert.alert("Men's hats")}>
             <Image style={{height: 340, width: 180}} source={require('./../../assets/image4.png')} />
           </TouchableOpacity>
-         
         </View>
       </View>
-      
     </ScrollView>
   );
 }
 
 const style = StyleSheet.create({
-  container: {
-    
-  },
+  
   text: {
     color: 'white',
     fontSize: 34
   },
-  image: {
-    
-  },
+  
 });
-/*
-<View style={{width: 50}}>
-        <ImageBackground source={require('./../../assets/image4.png')} >
-          <Text style={style.text}>Men's Hats</Text>
-        </ImageBackground>
-      </View>
-      <View style={{width: 50}}>
-        <ImageBackground source={require('./../../assets/image5.png')} >
-          <Text style={style.text}>Black</Text>
-        </ImageBackground>
-      </View>
-       <View style={style.image}>
-        <ImageBackground source={require('./../../assets/image.png')} >
-          <Text style={style.text}>New Collection</Text>
-        </ImageBackground>
-      </View>
-*/

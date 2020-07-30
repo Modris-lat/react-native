@@ -1,5 +1,5 @@
 import  { ScrollView, StatusBar, Text, Alert } from 'react-native';
-import {View, TextInput, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import {Input, Button} from '../components'
 

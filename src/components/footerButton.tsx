@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet, Text, Image, View} from 'react-native';
+import {TouchableOpacity, StyleSheet, Image, View} from 'react-native';
 
 interface Props {
     onPress: () => void;

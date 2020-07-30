@@ -1,4 +1,4 @@
-import { View, StyleSheet, Button, Text, Image, ImageBackground } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground } from 'react-native';
 import * as React from 'react';
 
 export const BagScreen: React.FC = () => {
@@ -15,9 +15,6 @@ export const BagScreen: React.FC = () => {
     container: {
       flex: 1,
       flexDirection: "column"
-    },
-    view: {
-        alignItems: 'center'
     },
     text: {
       color: 'white',

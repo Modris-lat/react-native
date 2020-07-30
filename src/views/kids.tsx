@@ -1,7 +1,5 @@
-import {View, StyleSheet, Text, Alert, TouchableOpacity} from 'react-native';
+import {View, Text, Alert, TouchableOpacity} from 'react-native';
 import React from 'react';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import {ButtonNavigationBar} from './../../src/components'
 
 export const KidsCategory: React.FC = () => {
     return (
@@ -22,9 +20,3 @@ export const KidsCategory: React.FC = () => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        
-    }
-})
