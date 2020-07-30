@@ -16,10 +16,7 @@ export const Button: React.FC<Props> = ({title, onPress}) => {
 };
 
 const style = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        borderRadius: 25
-    },
+    
     text: {
         color: '#F5F5F5',
         fontSize: 20,
@@ -32,11 +29,4 @@ const style = StyleSheet.create({
         flex: 0.15,
         
     },
-    outlined: {
-        borderWidth: 1.5,
-        borderColor: 'red'
-    },
-    filled: {
-        backgroundColor: 'black'
-    }
 })

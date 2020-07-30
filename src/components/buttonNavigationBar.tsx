@@ -1,7 +1,6 @@
 
 import {View, StyleSheet, Button} from 'react-native';
-import React, { ReactNode } from 'react';
-import { SimpleLineIcons } from '@expo/vector-icons';
+import React from 'react';
 
 export interface NavigationTabProps {
     onPress: () => void;

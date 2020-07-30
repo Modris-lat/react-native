@@ -1,8 +1,5 @@
 
-import {View, TextInput, StyleSheet} from 'react-native';
 import React from 'react';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import {ButtonNavigationBar} from './../../src/components'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import {WomenCategory, MenCategory, KidsCategory} from './index';
 
